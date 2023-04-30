@@ -1,7 +1,5 @@
 package ua.lviv.iot.algo.part1.lab5;
 
-import java.nio.charset.StandardCharsets;
-import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class WordsWithMoreVowelsFilter {
@@ -17,15 +15,5 @@ public class WordsWithMoreVowelsFilter {
             }
         }
         return newSentence.toString();
-    }
-
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
-        System.out.println("Enter a sentence: ");
-        String sentence = scanner.nextLine();
-        WordsWithMoreVowelsFilter remover = new WordsWithMoreVowelsFilter();
-        String modifiedSentence = remover.removeWordsWithMoreVowels(sentence);
-        System.out.println("Modified sentence: " + modifiedSentence);
-        scanner.close();
     }
 }
