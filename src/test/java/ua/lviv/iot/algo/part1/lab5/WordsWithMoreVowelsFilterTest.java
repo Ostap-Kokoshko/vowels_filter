@@ -5,7 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class WordsWithMoreVowelsFilterTest {
-    WordsWithMoreVowelsFilter deleteWords;
+    private WordsWithMoreVowelsFilter deleteWords;
 
     @BeforeEach
     void setUp() {
@@ -15,24 +15,28 @@ class WordsWithMoreVowelsFilterTest {
     @Test
     public void testRemoveWordsWithMoreVowels() {
         String sentence = "Hello my friend, I am soooo buuuusy today";
-        Assertions.assertEquals("Hello my friend, am today ", deleteWords.removeWordsWithMoreVowels(sentence));
+        String result = "Hello my friend, am today ";
+        Assertions.assertEquals(result, deleteWords.removeWordsWithMoreVowels(sentence));
     }
 
     @Test
-    public void testRemoveWordsWhenItNull() {
+    public void testRemoveWordsWhenSentenceIsEmpty() {
         String sentence = "";
-        Assertions.assertEquals(" ", deleteWords.removeWordsWithMoreVowels(sentence));
+        String result = " ";
+        Assertions.assertEquals(result, deleteWords.removeWordsWithMoreVowels(sentence));
     }
 
     @Test
     public void testRemoveWordsWhenItNothingToRemove() {
         String sentence = "Hello my friend, she is so busy today";
-        Assertions.assertEquals("Hello my friend, she is so busy today ", deleteWords.removeWordsWithMoreVowels(sentence));
+        String result = "Hello my friend, she is so busy today ";
+        Assertions.assertEquals(result, deleteWords.removeWordsWithMoreVowels(sentence));
     }
 
     @Test
     public void testRemoveWordsWhenAllWordsRemoved() {
         String sentence = "aeiou AEIOU";
-        Assertions.assertEquals("", deleteWords.removeWordsWithMoreVowels(sentence));
+        String result = "";
+        Assertions.assertEquals(result, deleteWords.removeWordsWithMoreVowels(sentence));
     }
 }
